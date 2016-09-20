@@ -21,13 +21,7 @@ import lanet.bhavin.rxjavasample.models.User;
 import lanet.bhavin.rxjavasample.presenters.UserPresnter;
 
 public class MainActivity extends AppCompatActivity {
-
-    private static final String SHARED_PREFERENCES_NAME = "AuthStatePreference";
-    private static final String AUTH_STATE = "AUTH_STATE";
-    private static final String USED_INTENT = "USED_INTENT";
-    private static final String LOG_TAG = "MainActivity";
     private AppCompatButton mAuthorize;
-    private AppCompatButton mMakeApiCall;
     private static final String TAG = "MainActivity";
     String sToken = "";
     RecyclerView rlUsers;
@@ -52,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
                         Log.d(TAG, "onTokenReceived() called with: Token = [" + Token + "]");
                         sToken = Token;
                         if (!TextUtils.isEmpty(sToken)) {
-                            paramMap.put("key",BuildVars.KEY);
+                            paramMap.put("key", BuildVars.KEY);
                             paramMap.put("access_token", sToken);
                         }
                         mListPresenter.loadPosts(paramMap);

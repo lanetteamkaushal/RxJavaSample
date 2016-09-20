@@ -7,3 +7,6 @@
 /build
 /captures
 .externalNativeBuild
+/app/src/main/java/lanet/bhavin/rxjavasample/global/BuildVars.java
+app/libs/
+app/src/main/java/lanet/bhavin/rxjavasample/global/
