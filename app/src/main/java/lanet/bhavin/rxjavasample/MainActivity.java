@@ -1,5 +1,6 @@
 package lanet.bhavin.rxjavasample;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
@@ -16,6 +17,7 @@ import java.util.Map;
 
 import lanet.bhavin.rxjavasample.adapters.UserAdapter;
 import lanet.bhavin.rxjavasample.global.BuildVars;
+import lanet.bhavin.rxjavasample.interfaces.RecyclerClickListener;
 import lanet.bhavin.rxjavasample.interfaces.UserService;
 import lanet.bhavin.rxjavasample.models.User;
 import lanet.bhavin.rxjavasample.presenters.UserPresnter;
@@ -57,7 +59,18 @@ public class MainActivity extends AppCompatActivity {
         });
         rlUsers = (RecyclerView) findViewById(R.id.rlUsers);
         posts = new ArrayList<>();
-        mPostsAdapter = new UserAdapter(this, posts);
+        mPostsAdapter = new UserAdapter(this, posts, new RecyclerClickListener() {
+
+            @Override
+            public void onItemClicked(int position, Object object) {
+                if (object != null) {
+                    User user = (User) object;
+                    Intent intent = new Intent(MainActivity.this, UserDetailActivity.class);
+                    intent.putExtra("User", user);
+                    startActivity(intent);
+                }
+            }
+        });
         rlUsers.setLayoutManager(new LinearLayoutManager(MainActivity.this, LinearLayoutManager.VERTICAL, false));
         rlUsers.setAdapter(mPostsAdapter);
 

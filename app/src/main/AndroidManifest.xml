@@ -3,7 +3,9 @@
     package="lanet.bhavin.rxjavasample">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
+        android:name=".global.ApplicationLoader"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -17,10 +19,14 @@
             </intent-filter>
             <intent-filter>
                 <action android:name="lanet.bhavin.rxjavasample.HANDLE_AUTHORIZATION_RESPONSE" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
+        <activity
+            android:name=".UserDetailActivity"
+            android:label="@string/title_activity_user_detail"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

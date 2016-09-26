@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import lanet.bhavin.rxjavasample.R;
+import lanet.bhavin.rxjavasample.interfaces.RecyclerClickListener;
 import lanet.bhavin.rxjavasample.models.User;
 
 /**
@@ -23,12 +24,14 @@ import lanet.bhavin.rxjavasample.models.User;
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserHolder> {
     private final Context context;
     private final ArrayList<User> objects;
+    private RecyclerClickListener recyclerClickListener;
     LayoutInflater inflater;
     private static final String TAG = "UserAdapter";
 
-    public UserAdapter(Context context, ArrayList<User> objects) {
+    public UserAdapter(Context context, ArrayList<User> objects, RecyclerClickListener recyclerClickListener) {
         this.context = context;
         this.objects = objects;
+        this.recyclerClickListener = recyclerClickListener;
         inflater = LayoutInflater.from(this.context);
     }
 
@@ -41,7 +44,16 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserHolder> {
     @Override
     public UserHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = inflater.inflate(R.layout.user_row, parent, false);
-        return new UserHolder(view);
+        final UserHolder myHolder = new UserHolder(view);
+        myHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(recyclerClickListener!=null){
+                    recyclerClickListener.onItemClicked(myHolder.getAdapterPosition(),getItem(myHolder.getAdapterPosition()));
+                }
+            }
+        });
+        return myHolder;
     }
 
     @Override

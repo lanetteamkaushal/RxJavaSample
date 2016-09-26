@@ -1,9 +1,12 @@
 package lanet.bhavin.rxjavasample.models;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.HashMap;
 import java.util.Map;
 
-public class User {
+public class User implements Parcelable {
 
     private Integer account_id;
     private Integer age;
@@ -64,4 +67,43 @@ public class User {
     public String toString() {
         return "ID :" + account_id + " Name :" + display_name;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeValue(this.account_id);
+        dest.writeValue(this.age);
+        dest.writeValue(this.creation_date);
+        dest.writeString(this.location);
+        dest.writeString(this.profile_image);
+        dest.writeString(this.display_name);
+    }
+
+    public User() {
+    }
+
+    protected User(Parcel in) {
+        this.account_id = (Integer) in.readValue(Integer.class.getClassLoader());
+        this.age = (Integer) in.readValue(Integer.class.getClassLoader());
+        this.creation_date = (Integer) in.readValue(Integer.class.getClassLoader());
+        this.location = in.readString();
+        this.profile_image = in.readString();
+        this.display_name = in.readString();
+    }
+
+    public static final Parcelable.Creator<User> CREATOR = new Parcelable.Creator<User>() {
+        @Override
+        public User createFromParcel(Parcel source) {
+            return new User(source);
+        }
+
+        @Override
+        public User[] newArray(int size) {
+            return new User[size];
+        }
+    };
 }
