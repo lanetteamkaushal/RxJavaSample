@@ -45,10 +45,10 @@ public class MainActivity extends AppCompatActivity {
                     public void onTokenReceived(String Token) {
                         Log.d(TAG, "onTokenReceived() called with: Token = [" + Token + "]");
                         sToken = Token;
-                        if (!TextUtils.isEmpty(sToken)) {
-                            paramMap.put("key", BuildVars.KEY);
-                            paramMap.put("access_token", sToken);
-                        }
+//                        if (!TextUtils.isEmpty(sToken)) {
+//                            paramMap.put("key", BuildVars.KEY);
+//                            paramMap.put("access_token", sToken);
+//                        }
                         mListPresenter.loadPosts(paramMap);
                     }
                 });

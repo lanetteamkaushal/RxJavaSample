@@ -8,6 +8,7 @@ import java.util.Map;
 import lanet.bhavin.rxjavasample.MainActivity;
 import lanet.bhavin.rxjavasample.interfaces.UserService;
 import lanet.bhavin.rxjavasample.models.User;
+import lanet.bhavin.rxjavasample.models.Users;
 import rx.Observer;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
@@ -28,7 +29,7 @@ public class UserPresnter {
                 .getUsers(options)
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<List<User>>() {
+                .subscribe(new Observer<Users>() {
                     @Override
                     public void onCompleted() {
 
@@ -40,8 +41,8 @@ public class UserPresnter {
                     }
 
                     @Override
-                    public void onNext(List<User> users) {
-                        mView.displayPosts(users);
+                    public void onNext(Users users) {
+                        mView.displayPosts(users.getItems());
                     }
                 });
     }

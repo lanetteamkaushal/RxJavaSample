@@ -27,7 +27,6 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserHolder> {
     private static final String TAG = "UserAdapter";
 
     public UserAdapter(Context context, ArrayList<User> objects) {
-
         this.context = context;
         this.objects = objects;
         inflater = LayoutInflater.from(this.context);
@@ -48,13 +47,13 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserHolder> {
     @Override
     public void onBindViewHolder(UserHolder holder, int position) {
         User user = getItem(position);
-        holder.tvUserName.setText(user.getDisplayName());
+        holder.tvUserName.setText(user.getDisplay_name());
         holder.tvLocation.setText(user.getLocation());
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return objects.size();
     }
 
     public class UserHolder extends RecyclerView.ViewHolder {

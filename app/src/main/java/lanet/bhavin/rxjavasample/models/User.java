@@ -5,108 +5,63 @@ import java.util.Map;
 
 public class User {
 
-    private Integer accountId;
+    private Integer account_id;
     private Integer age;
-    private Integer creationDate;
+    private Integer creation_date;
     private String location;
-    private String profileImage;
-    private String displayName;
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private String profile_image;
+    private String display_name;
 
-    /**
-     * @return The accountId
-     */
-    public Integer getAccountId() {
-        return accountId;
+    public Integer getAccount_id() {
+        return account_id;
     }
 
-    /**
-     * @param accountId The account_id
-     */
-    public void setAccountId(Integer accountId) {
-        this.accountId = accountId;
+    public void setAccount_id(Integer account_id) {
+        this.account_id = account_id;
     }
 
-    /**
-     * @return The age
-     */
     public Integer getAge() {
         return age;
     }
 
-    /**
-     * @param age The age
-     */
     public void setAge(Integer age) {
         this.age = age;
     }
 
-    /**
-     * @return The creationDate
-     */
-    public Integer getCreationDate() {
-        return creationDate;
+    public Integer getCreation_date() {
+        return creation_date;
     }
 
-    /**
-     * @param creationDate The creation_date
-     */
-    public void setCreationDate(Integer creationDate) {
-        this.creationDate = creationDate;
+    public void setCreation_date(Integer creation_date) {
+        this.creation_date = creation_date;
     }
 
-    /**
-     * @return The location
-     */
     public String getLocation() {
         return location;
     }
 
-    /**
-     * @param location The location
-     */
     public void setLocation(String location) {
         this.location = location;
     }
 
-    /**
-     * @return The profileImage
-     */
-    public String getProfileImage() {
-        return profileImage;
+    public String getProfile_image() {
+        return profile_image;
     }
 
-    /**
-     * @param profileImage The profile_image
-     */
-    public void setProfileImage(String profileImage) {
-        this.profileImage = profileImage;
+    public void setProfile_image(String profile_image) {
+        this.profile_image = profile_image;
     }
 
-    /**
-     * @return The displayName
-     */
-    public String getDisplayName() {
-        return displayName;
+    public String getDisplay_name() {
+        return display_name;
     }
 
-    /**
-     * @param displayName The display_name
-     */
-    public void setDisplayName(String displayName) {
-        this.displayName = displayName;
-    }
-
-    public Map<String, Object> getAdditionalProperties() {
-        return this.additionalProperties;
-    }
-
-    public void setAdditionalProperty(String name, Object value) {
-        this.additionalProperties.put(name, value);
+    public void setDisplay_name(String display_name) {
+        this.display_name = display_name;
     }
 
     @Override
     public String toString() {
-        return "ID :" + accountId + " Name :" + displayName;
+        return "ID :" + account_id + " Name :" + display_name;
     }
 }
