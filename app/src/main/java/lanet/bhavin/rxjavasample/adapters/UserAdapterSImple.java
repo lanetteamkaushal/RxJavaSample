@@ -17,14 +17,14 @@ import lanet.bhavin.rxjavasample.models.User;
  * Created by lcom75 on 20/9/16.
  */
 
-public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserHolder> {
+public class UserAdapterSImple extends RecyclerView.Adapter<UserAdapterSImple.UserHolder> {
     private static final String TAG = "UserAdapter";
     private final Context context;
     private final ArrayList<User> objects;
     LayoutInflater inflater;
     private RecyclerClickListener recyclerClickListener;
 
-    public UserAdapter(Context context, ArrayList<User> objects, RecyclerClickListener recyclerClickListener) {
+    public UserAdapterSImple(Context context, ArrayList<User> objects, RecyclerClickListener recyclerClickListener) {
         this.context = context;
         this.objects = objects;
         this.recyclerClickListener = recyclerClickListener;
@@ -44,8 +44,8 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserHolder> {
         myHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(recyclerClickListener!=null){
-                    recyclerClickListener.onItemClicked(myHolder.getAdapterPosition(),getItem(myHolder.getAdapterPosition()));
+                if (recyclerClickListener != null) {
+                    recyclerClickListener.onItemClicked(myHolder.getAdapterPosition(), getItem(myHolder.getAdapterPosition()));
                 }
             }
         });
@@ -55,7 +55,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserHolder> {
     @Override
     public void onBindViewHolder(UserHolder holder, int position) {
         User user = getItem(position);
-        holder.tvUserName.setText(String.valueOf(user.getAccount_id()));
+        holder.tvUserName.setText(user.getDisplay_name());
         holder.tvLocation.setText(user.getLocation());
     }
 

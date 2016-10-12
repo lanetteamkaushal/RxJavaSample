@@ -1,4 +1,14 @@
 <resources>
     <string name="app_name">RxJavaSample</string>
     <string name="title_activity_user_detail">UserDetailActivity</string>
+    <string name="title_activity_detail">DetailActivity</string>
+    <string name="quickstart_message">Click the SUBSCRIBE TO NEWS button below to subscribe to the
+        news topic. Messages sent to the news topic will be received. The LOG TOKEN button logs the
+        InstanceID token to logcat.</string>
+    <string name="subscribe_to_news">Subscribe To News</string>
+    <string name="log_token">Log Token</string>
+
+    <string name="msg_subscribed">Subscribed to news topic</string>
+    <string name="msg_token_fmt" translatable="false">InstanceID Token: %s</string>
+    <string name="default_web_client_id">143861615403-ect5aqc6dmktuvn6l9qekvjm3di9nq2c.apps.googleusercontent.com</string>
 </resources>

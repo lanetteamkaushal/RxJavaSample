@@ -3,17 +3,41 @@ package lanet.bhavin.rxjavasample.models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class User implements Parcelable {
 
+    public static final Parcelable.Creator<User> CREATOR = new Parcelable.Creator<User>() {
+        @Override
+        public User createFromParcel(Parcel source) {
+            return new User(source);
+        }
+
+        @Override
+        public User[] newArray(int size) {
+            return new User[size];
+        }
+    };
     private Integer account_id;
     private Integer age;
     private Integer creation_date;
     private String location;
     private String profile_image;
     private String display_name;
+
+    public User(Integer account_id) {
+        this.account_id = account_id;
+    }
+
+    public User() {
+    }
+
+    protected User(Parcel in) {
+        this.account_id = (Integer) in.readValue(Integer.class.getClassLoader());
+        this.age = (Integer) in.readValue(Integer.class.getClassLoader());
+        this.creation_date = (Integer) in.readValue(Integer.class.getClassLoader());
+        this.location = in.readString();
+        this.profile_image = in.readString();
+        this.display_name = in.readString();
+    }
 
     public Integer getAccount_id() {
         return account_id;
@@ -82,28 +106,4 @@ public class User implements Parcelable {
         dest.writeString(this.profile_image);
         dest.writeString(this.display_name);
     }
-
-    public User() {
-    }
-
-    protected User(Parcel in) {
-        this.account_id = (Integer) in.readValue(Integer.class.getClassLoader());
-        this.age = (Integer) in.readValue(Integer.class.getClassLoader());
-        this.creation_date = (Integer) in.readValue(Integer.class.getClassLoader());
-        this.location = in.readString();
-        this.profile_image = in.readString();
-        this.display_name = in.readString();
-    }
-
-    public static final Parcelable.Creator<User> CREATOR = new Parcelable.Creator<User>() {
-        @Override
-        public User createFromParcel(Parcel source) {
-            return new User(source);
-        }
-
-        @Override
-        public User[] newArray(int size) {
-            return new User[size];
-        }
-    };
 }
