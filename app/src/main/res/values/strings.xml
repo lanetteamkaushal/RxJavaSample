@@ -10,5 +10,4 @@
 
     <string name="msg_subscribed">Subscribed to news topic</string>
     <string name="msg_token_fmt" translatable="false">InstanceID Token: %s</string>
-    <string name="default_web_client_id">143861615403-ect5aqc6dmktuvn6l9qekvjm3di9nq2c.apps.googleusercontent.com</string>
 </resources>

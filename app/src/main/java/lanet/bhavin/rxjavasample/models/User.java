@@ -30,6 +30,15 @@ public class User implements Parcelable {
     public User() {
     }
 
+    public User(User user) {
+        this.account_id = user.account_id;
+        this.age = user.age;
+        this.creation_date = user.creation_date;
+        this.location = user.location;
+        this.profile_image = user.profile_image;
+        this.display_name = user.display_name;
+    }
+
     protected User(Parcel in) {
         this.account_id = (Integer) in.readValue(Integer.class.getClassLoader());
         this.age = (Integer) in.readValue(Integer.class.getClassLoader());

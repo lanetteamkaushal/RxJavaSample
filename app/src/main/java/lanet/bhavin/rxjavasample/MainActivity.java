@@ -31,6 +31,7 @@ import java.util.List;
 import java.util.Map;
 
 import lanet.bhavin.rxjavasample.adapters.UserAdapter;
+import lanet.bhavin.rxjavasample.global.ApplicationLoader;
 import lanet.bhavin.rxjavasample.interfaces.RecyclerClickListener;
 import lanet.bhavin.rxjavasample.interfaces.UserService;
 import lanet.bhavin.rxjavasample.models.Question;
@@ -130,6 +131,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClicked(int position, Object object) {
                 if (object != null) {
+                    ApplicationLoader.users = posts;
                     User user = (User) object;
                     Intent intent = new Intent(MainActivity.this, DetailActivity.class);
                     intent.putExtra("User", user);
